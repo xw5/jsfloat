@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮点数计算示例</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        ul,li{
+            list-style:none;
+        }
+        input[type=text]{
+            width:160px;
+            height:40px;
+        }
+        input[type=button]{
+            padding:0 10px;
+            height:40px;
+        }
+        #resultList{
+            font-size:16px;
+            line-height:24px;
+
+        }
+        #resultList li{
+            padding-top:10px;
+        }
+        #resultList b{
+            color:green;
+        }
+        .opearation-wrap{
+            width:400px;
+            margin:100px auto 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="opearation-wrap">
+        <input type="text" id="inputNum0">
+        <input type="text" id="inputNum1"><br /><br />
+        <input type="button" value="执行+" id="startOperation0">
+        <input type="button" value="执行-" id="startOperation1">
+        <input type="button" value="执行*" id="startOperation2">
+        <input type="button" value="执行/" id="startOperation3">
+        <input type="button" value="执行all" id="startOperation">
+        <ul id="resultList">
+            <li>加法原始计算值<i></i><br>优化后计算值<em></em></li>
+            <li>减法原始计算值<i></i><br>优化后计算值<em></em></li>
+            <li>乘法原始计算值<i></i><br>优化后计算值<em></em></li>
+            <li>除法原始计算值<i></i><br>优化后计算值<em></em></li>
+        </ul>
+    </div>
+<script src="jsFloatCompute.js"></script>
+<script>
+    var numInput0=document.getElementById("inputNum0"),
+        numInput1=document.getElementById("inputNum1"),
+        resultList=document.getElementById("resultList"),
+        showListOld=resultList.getElementsByTagName("i"),
+        showList=resultList.getElementsByTagName("em");
+    //执行加法
+    document.getElementById("startOperation0").onclick=function(){
+        var num0=numInput0.value,
+            num1=numInput1.value;
+        showListOld[0].innerHTML=Number(num0)+Number(num1);
+        showList[0].innerHTML=jsFloat.add(num0,num1);
+    }
+    //执行减法
+    document.getElementById("startOperation1").onclick=function(){
+        var num0=numInput0.value,
+            num1=numInput1.value;
+        showListOld[1].innerHTML=num0-num1;
+        showList[1].innerHTML=jsFloat.subtract(num0,num1);
+    }
+    //执行乘法
+    document.getElementById("startOperation2").onclick=function(){
+        var num0=numInput0.value,
+            num1=numInput1.value;
+        showListOld[2].innerHTML=num0*num1;
+        showList[2].innerHTML=jsFloat.ride(num0,num1);
+    }
+    //执行除法
+    document.getElementById("startOperation3").onclick=function(){
+        var num0=numInput0.value,
+            num1=numInput1.value;
+        showListOld[2].innerHTML=num0/num1;
+        showList[3].innerHTML=jsFloat.divide(num0,num1);
+    }
+    //一次执行所有计算
+    document.getElementById("startOperation").onclick=function(){
+        var num0=numInput0.value,
+            num1=numInput1.value;
+        showListOld[0].innerHTML=num0+num1;
+        showListOld[1].innerHTML=num0-num1;
+        showListOld[2].innerHTML=num0*num1;
+        showListOld[2].innerHTML=num0/num1;
+        showList[0].innerHTML=jsFloat.add(num0,num1);
+        showList[1].innerHTML=jsFloat.subtract(num0,num1);
+        showList[2].innerHTML=jsFloat.ride(num0,num1);
+        showList[3].innerHTML=jsFloat.divide(num0,num1);
+
+    }
+</script>
+</body>
+</html>
