@@ -1,1 +1,3 @@
 这是一个解决JS浮点型数值执行加减乘除精度出错的解决方案
+jsFloatCompute.js是源代码
+index.html是一个测试运行dome
